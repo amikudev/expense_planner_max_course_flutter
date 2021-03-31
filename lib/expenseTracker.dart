@@ -57,11 +57,19 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   color: Colors.lightGreen,
-                  child: Center(
-                    child: tx.title.text.make(),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        child: tx.amount.text.make(),
+                      ),
+                      Column(children: <Widget>[
+                        tx.title.text.make(),
+                        tx.date.toString().text.make(),
+                      ]),
+                    ],
                   ),
                 ),
-                elevation: 5,
+                elevation: 10,
               );
               /**/
             }).toList()
