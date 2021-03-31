@@ -1,4 +1,4 @@
-import 'package:expense_planner_max_course/expenseTracker.dart';
+import './expenseTracker.dart';
 import 'package:flutter/material.dart';
 import './myHomePage.dart';
 
