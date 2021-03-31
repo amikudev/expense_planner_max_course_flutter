@@ -51,20 +51,20 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
               ),
               elevation: 5,
             ),
-            ...transactions
-                .map((transaction) => Card(
-                      child: Container(
-                        width: double.infinity,
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                        color: Colors.lightGreen,
-                        child: Center(
-                          child: transaction.title.text.make(),
-                        ),
-                      ),
-                      elevation: 5,
-                    ))
-                .toList()
+            ...transactions.map((tx) {
+              return Card(
+                child: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  color: Colors.lightGreen,
+                  child: Center(
+                    child: tx.title.text.make(),
+                  ),
+                ),
+                elevation: 5,
+              );
+              /**/
+            }).toList()
           ],
         ),
       ),
