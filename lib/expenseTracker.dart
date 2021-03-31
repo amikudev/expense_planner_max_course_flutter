@@ -61,6 +61,11 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
                     children: <Widget>[
                       Container(
                         child: tx.amount.text.make(),
+                        padding:
+                            EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(5))),
                       ),
                       Column(children: <Widget>[
                         tx.title.text.make(),
