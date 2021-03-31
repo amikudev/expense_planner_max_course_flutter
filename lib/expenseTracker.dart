@@ -56,21 +56,45 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
                 child: Container(
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  color: Colors.lightGreen,
+                  // color: Colors.lightGreen,
                   child: Row(
                     children: <Widget>[
                       Container(
-                        child: tx.amount.text.make(),
-                        padding:
-                            EdgeInsets.all(10),
+                        // child: tx.amount.text.bold.make(),
+                        child: Text(
+                          tx.amount.toString(),
+                          style: TextStyle(
+                              color: Colors.purple,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        padding: EdgeInsets.all(10),
+                        margin: EdgeInsets.only(right: 20),
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 2),
-                        borderRadius: BorderRadius.all(Radius.circular(5))),
+                            border: Border.all(color: Colors.purple, width: 2),
+                            borderRadius: BorderRadius.all(Radius.circular(5))),
                       ),
-                      Column(children: <Widget>[
-                        tx.title.text.make(),
-                        tx.date.toString().text.make(),
-                      ]),
+                      Column(
+                        children: <Widget>[
+                          Text(
+                            tx.title,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16
+                            ),
+                          ),
+                          SizedBox(height: 3,),
+                          Text(
+                            tx.date.toString(),
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                      ),
                     ],
                   ),
                 ),
