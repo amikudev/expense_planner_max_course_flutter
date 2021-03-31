@@ -62,7 +62,7 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
                       Container(
                         // child: tx.amount.text.bold.make(),
                         child: Text(
-                          tx.amount.toString(),
+                          "\$${tx.amount.toString()}",
                           style: TextStyle(
                               color: Colors.purple,
                               fontSize: 20,
