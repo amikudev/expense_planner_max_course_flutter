@@ -1,6 +1,7 @@
 import 'package:expense_planner_max_course/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:intl/intl.dart';
 
 class ExpenseTracker extends StatefulWidget {
   @override
@@ -85,7 +86,8 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
                           ),
                           SizedBox(height: 3,),
                           Text(
-                            tx.date.toString(),
+                            DateFormat.yMMMd().format(tx.date),
+                            // tx.date.toString(),
                             style: TextStyle(
                               color: Colors.grey,
                               fontSize: 12,
