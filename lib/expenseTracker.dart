@@ -30,6 +30,9 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
     ),
   ];
 
+  TextEditingController _title = TextEditingController();
+  TextEditingController _amount = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +54,39 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
                 ),
               ),
               elevation: 5,
+            ),
+            Card(
+              elevation: 10,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: "Title"),
+                      controller: _title,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: "Amount"),
+                      controller: _amount,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        print(_title.text);
+                        print(_amount.text);
+                      },
+                      child: Text("Add "
+                          "Transaction"),
+                      style: ElevatedButton.styleFrom(
+                        elevation: 10,
+                      )
+                    )
+                  ],
+                ),
+              ),
             ),
             ...transactions.map((tx) {
               return Card(
@@ -75,16 +111,18 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
                             border: Border.all(color: Colors.purple, width: 2),
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                       ),
+
+                      //Expenses
                       Column(
                         children: <Widget>[
                           Text(
                             tx.title,
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16
-                            ),
+                                fontWeight: FontWeight.bold, fontSize: 16),
                           ),
-                          SizedBox(height: 3,),
+                          SizedBox(
+                            height: 3,
+                          ),
                           Text(
                             DateFormat.yMMMd().format(tx.date),
                             // tx.date.toString(),
