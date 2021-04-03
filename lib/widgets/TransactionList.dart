@@ -12,8 +12,10 @@ class TransactionList extends StatelessWidget {
     return Container(
       height: 300,
       child: Scrollbar(
-        child: ListView(
-          children: _userTransactions.map((tx) {
+        child: ListView.builder(
+          itemCount: _userTransactions.length,
+          itemBuilder: (BuildContext _, int index) {
+            final tx = _userTransactions[index];
             return Card(
               child: Container(
                 width: double.infinity,
@@ -24,7 +26,7 @@ class TransactionList extends StatelessWidget {
                     Container(
                       // child: tx.amount.text.bold.make(),
                       child: Text(
-                        "\$${tx.amount.toString()}",
+                        "\$${tx.amount.toStringAsFixed(2)}",
                         style: TextStyle(
                             color: Colors.purple,
                             fontSize: 20,
@@ -63,8 +65,8 @@ class TransactionList extends StatelessWidget {
               ),
               elevation: 10,
             );
-            /**/
-          }).toList(),
+          },
+
         )
       ),
     );
