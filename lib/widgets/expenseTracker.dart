@@ -32,6 +32,43 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
       amount: 12.99,
       date: DateTime.now(),
     ),
+
+    Transaction(
+      id: "1",
+      title: "Shoes",
+      amount: 69.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "2",
+      title: "Weekly groceries",
+      amount: 9.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "4",
+      title: "Towels",
+      amount: 12.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "1",
+      title: "Shoes",
+      amount: 69.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "2",
+      title: "Weekly groceries",
+      amount: 9.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "4",
+      title: "Towels",
+      amount: 12.99,
+      date: DateTime.now(),
+    ),
   ];
 
   _addTransaction(String title, double amount) {
@@ -53,27 +90,25 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
       appBar: AppBar(title: "Expense Tracker".text.make()),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        child: Scrollbar(
-          child: ListView(
-            // mainAxisAlignment: MainAxisAlignment.start,
-            // crossAxisAlignment: CrossAxisAlignment.center,
+        child: ListView(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.center,
 
-            children: [
-              Card(
-                child: Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  color: Colors.grey,
-                  child: Center(
-                    child: "Chart".text.make(),
-                  ),
+          children: [
+            Card(
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                color: Colors.grey,
+                child: Center(
+                  child: "Chart".text.make(),
                 ),
-                elevation: 5,
               ),
-              NewTransaction(_addTransaction),
-              TransactionList(_userTransactions),
-            ],
-          ),
+              elevation: 5,
+            ),
+            NewTransaction(_addTransaction),
+            TransactionList(_userTransactions),
+          ],
         ),
       ),
     );
