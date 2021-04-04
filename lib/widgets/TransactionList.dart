@@ -28,7 +28,7 @@ class TransactionList extends StatelessWidget {
                     child: Text(
                       "\$${tx.amount.toStringAsFixed(2)}",
                       style: TextStyle(
-                          color: Colors.purple,
+                          color: Theme.of(context).primaryColorDark,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
