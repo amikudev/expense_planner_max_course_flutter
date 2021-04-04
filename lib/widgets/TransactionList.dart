@@ -12,63 +12,61 @@ class TransactionList extends StatelessWidget {
     return Container(
       height: 300,
       child: Scrollbar(
-        child: ListView.builder(
-          itemCount: _userTransactions.length,
-          itemBuilder: (BuildContext _, int index) {
-            final tx = _userTransactions[index];
-            return Card(
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                // color: Colors.lightGreen,
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      // child: tx.amount.text.bold.make(),
-                      child: Text(
-                        "\$${tx.amount.toStringAsFixed(2)}",
+          child: ListView.builder(
+        itemCount: _userTransactions.length,
+        itemBuilder: (BuildContext _, int index) {
+          final tx = _userTransactions[index];
+          return Card(
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              // color: Colors.lightGreen,
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    // child: tx.amount.text.bold.make(),
+                    child: Text(
+                      "\$${tx.amount.toStringAsFixed(2)}",
+                      style: TextStyle(
+                          color: Colors.purple,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.only(right: 20),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.purple, width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(5))),
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        tx.title,
                         style: TextStyle(
-                            color: Colors.purple,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.bold, fontSize: 16),
                       ),
-                      padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(right: 20),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.purple, width: 2),
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Text(
-                          tx.title,
-                          style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      SizedBox(
+                        height: 3,
+                      ),
+                      Text(
+                        DateFormat.yMMMd().format(tx.date),
+                        // tx.date.toString(),
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12,
                         ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          DateFormat.yMMMd().format(tx.date),
-                          // tx.date.toString(),
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                  ),
+                ],
               ),
-              elevation: 10,
-            );
-          },
-
-        )
-      ),
+            ),
+            elevation: 10,
+          );
+        },
+      )),
     );
   }
 }

@@ -83,13 +83,28 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
     });
   }
 
+  _startAddTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+        context: ctx,
+        builder: (_) {
+          return GestureDetector(
+            child: NewTransaction(_addTransaction),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: "Expense Tracker".text.make(),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.add), color: Colors.purple,onPressed: (){})
+          IconButton(
+              icon: Icon(Icons.add),
+              color: Colors.purple,
+              onPressed: () {
+                _startAddTransaction(context);
+              })
         ],
       ),
       body: Container(
@@ -110,7 +125,6 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
               ),
               elevation: 5,
             ),
-            NewTransaction(_addTransaction),
             TransactionList(_userTransactions),
           ],
         ),
@@ -118,7 +132,9 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: (){},
+        onPressed: () {
+          _startAddTransaction(context);
+        },
       ),
     );
   }
