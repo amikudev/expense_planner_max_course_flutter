@@ -32,7 +32,6 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
       amount: 12.99,
       date: DateTime.now(),
     ),
-
     Transaction(
       id: "1",
       title: "Shoes",
@@ -87,7 +86,12 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: "Expense Tracker".text.make()),
+      appBar: AppBar(
+        title: "Expense Tracker".text.make(),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.add), color: Colors.purple,onPressed: (){})
+        ],
+      ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         child: ListView(
@@ -110,6 +114,11 @@ class _ExpenseTrackerState extends State<ExpenseTracker> {
             TransactionList(_userTransactions),
           ],
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){},
       ),
     );
   }
